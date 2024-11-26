@@ -276,7 +276,7 @@ class SemanticChunker(BaseDocumentTransformer):
         sentences_per_group: int = 1,
     ) -> List[str]:
         # Splitting the essay (by default on '.', '?', and '!')
-        single_sentences_list = re.split(self.sentence_split_regex, text)
+        single_sentences_list = re.split(r'\n+', text)
         
         # Remove empty strings from the list
         sentences = [s.strip() for s in single_sentences_list if s.strip()]
