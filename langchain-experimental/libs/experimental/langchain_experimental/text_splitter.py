@@ -372,6 +372,7 @@ class SemanticChunker(BaseDocumentTransformer):
             
             for i, (chunk_id, chunk) in enumerate(zip(chunk_ids, chunks)):
                 metadata = {
+                    "position": i+1,
                     "id": chunk_id,
                     "prevNodeId": chunk_ids[i-1] if i > 0 else None,
                     "nextNodeId": chunk_ids[i+1] if i < total_chunks - 1 else None,
